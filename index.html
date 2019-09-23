@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Fin Tech Trends</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 01. reset.css -->
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+
+  <!-- 02. Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Lobster+Two|Tangerine|Markazi+Text" rel="stylesheet">
+
+  <!-- 03. Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- materialize Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  
+  <!-- materialize Icons HTML -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <!--Link to Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+</head>
+<nav class="navbar navbar-light" style="background-color: rgb(201, 199, 199);">
+  <a class="navbar-brand" style="font-size:24px;color: #0f0f0f;" href="#">
+    <img class="z-depth-5" src="assets/images/logo_brown.png" width="100" height="50" class="d-inline-block align-top" alt="">
+    <strong>FinTech Trends</strong>
+  </a>
+  <a class="waves-effect waves-light grey darken-2 btn-small right"id="pieChartBtn" href="test.html">Crypto Market Dominance</a>
+  <a class="waves-effect waves-light grey darken-2 btn-small right"id="signupBtn">SignUP</a>
+</nav>
+<body>
+ 
+<body> 
+  <marquee id="updatePrices" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+  </marquee>
+
+  <div class="container-fluid">
+    <div class="row"> 
+      <form class="col-lg-4 align-right " id="signUp">
+          <button id="close" type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+        <h3>Sign Up</h3>
+        <hr>
+        <div class="row">
+            <div class="input-field col s3 ">
+                <input id="fname" type="text" name="fname" required="required" class="validate">
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="lname" type="text" name="lname" required="required" class="validate">
+                <label for="last_name">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+              <label for="password">Password</label>
+              <input id="pwd" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" required>
+            </div>
+            <div class="input-field col s3">
+                <input id="cpwd" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password' : '');" required>
+                <label for="password">Confirm Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="email" type="email" name="email"required="required" class="validate">
+                <label for="email">Email</label>
+            </div>  
+        </div>                  
+        <div class="row">
+            <div class="input-field col s6" id="send">
+              <button class="btn waves-effect waves-light grey darken-2" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+              </button> 
+            </div>   
+        </div>
+      </form>  
+  </div>
+  <div class="container-fluid bg-3 text-center" id="main-contents">
+    <div class="row">
+      <div class="col-lg-12 " id="crytoDiv">
+        <!--crypto images go here  -->
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-sm-5 z-depth-5" id="dataDiv" style="font-weight: 450;">
+        <p>Click a button above to get the data for the crypto</p>
+          <div class="col-sm-12 z-depth-8" id="dataDiv-image">
+          </div>
+      </div>
+      <!-- <div class="col-sm-1" ></div> -->
+      <div class="col-sm-5 z-depth-5" id="firebaseDiv">
+          <div id="quizBtn">
+              <div class="col-sm-12 z-depth-8" id="quizInitial-image">
+                </div>
+              <p id="p1">Take a crypto Quiz</p>
+              <button id="yes">&emsp;YES&emsp;</button>&emsp;&emsp;<button id="no">&emsp;NO&emsp;</button>   
+                <!-- <div class="col-sm-12 z-depth-8" id="quizInitial-image">
+                </div> -->
+            </div>
+          <!-- Quiz page -->
+          <div id="currentQuiz"></div>
+          <div class="quiz"></div>
+          <div class="answerList"></div>
+          <!-- Answer Page -->
+          <div id="message"></div>
+          <div id="correctedAnswer"></div>
+          <div id="gif"></div>
+          <!-- result page -->
+          <div id="resultMessage"></div>
+          <div id="correctAnswers"></div>
+          <div id="incorrectAnswers"></div>
+          <div id="startOverBtn"></div>
+          <div id="participantNum"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 z-depth-5" id="articleDiv">Latest News: </div>
+    </div>
+  </div>
+  <footer>
+    <!-- <div class="container text-center"> -->
+      <p>Copyright &copy; FTT 2018</p>
+    <!-- </div> -->
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+  
+  <script type="text/javascript" src="assets/javascript/FinalTicker.js"></script>
+  <script type="text/javascript" src="assets/javascript/quiz.js"></script>
+  <script type="text/javascript" src="assets/javascript/signUp.js"></script>
+  <script src="assets/javascript/coinmarket.js"></script>
+  <script src="assets/javascript/articles.js"></script>
+
+</body>
+
+</html>
